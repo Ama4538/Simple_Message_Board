@@ -1,0 +1,17 @@
+<section class="new-post">
+    <h3>Create post</h3>
+    <span>Send whats on your mind?</span>
+
+    <form method='POST' action="/new">
+        <label for='form-user'>Username</label>
+        <input id='form-user' name="form-user" type="text" placeholder="Username">
+        <label for='form-title'> Title <span>*</span></label>
+        <input id="form-title" name="form-title" type="text" placeholder="Title" required>
+        <label for='form-message'> Body <span>*</span></label>
+        <textarea id="form-message" name="form-message" placeholder="Body" rows='7' required></textarea>
+        <div>
+            <button type="button" id="clear-button">Clear</button>
+            <button type="submit">Post</button>
+        </div>
+    </form>
+</section>

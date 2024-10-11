@@ -1,22 +1,9 @@
 // Index Router
 const { Router } = require('express');
-const indexRouter = Router();
+const { getMessages } = require('../modules/message.js');
 
-// Place Holder Message
-const messages = [
-    {
-        title: "Guess What",
-        text: "Hi there!",
-        user: "Amando",
-        added: new Date()
-    },
-    {
-        title: "Guess What",
-        text: "Hello World!",
-        user: "Charles",
-        added: new Date()
-    }
-];
+const indexRouter = Router();
+const messages = getMessages();
 
 indexRouter.get('/', (req, res) => {
     // Added random color to each message

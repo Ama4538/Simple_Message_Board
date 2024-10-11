@@ -13,9 +13,9 @@
         <article>
             <h1> Message Board </h1>
             <div>
-                <button data-active=<%=location=="index" %>
+                <button data-active=<%=location=="index" %> onclick="window.location='/';"
                     > Dashboard</button>
-                <button data-active=<%=location=="new" %>
+                <button data-active=<%=location=="new" %> onclick="window.location='/new';"
                     > Add Message</button>
             </div>
         </article>
@@ -25,19 +25,25 @@
             <ul class="thread">
                 <% messages.forEach(message=> { %>
                     <li>
-                        <%- include('message', {
-                        user: message.user,
-                        added: message.added,
-                        title: message.title,
-                        text: message.text,
-                        color1: message.color1,
-                        color2: message.color2
-                    }) %>
+                        <%- include('message', { user: message.user, added: message.added, title: message.title, text:
+                            message.text, color1: message.color1, color2: message.color2 }) %>
                     </li>
                     <% }); %>
             </ul>
             <% } %>
+                <% if (location=="new" ) { %>
+                    <%- include('form') %>
+                        <% } %>
     </main>
 </body>
 
 </html>
+
+<!-- Handle cancel button -->
+<script>
+    document.getElementById('clear-button').onclick = function () {
+        document.getElementById('form-user').value = '';
+        document.getElementById('form-title').value = '';
+        document.getElementById('form-message').value = '';
+    };
+</script>
