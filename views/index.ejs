@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Board</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1> <%= message %></h1>
+    <nav>
+        <article>
+            <h1> Message Board </h1>
+            <div>
+                <button data-active=<%=location=="index" %>
+                    > Dashboard</button>
+                <button data-active=<%=location=="new" %>
+                    > Add Message</button>
+            </div>
+        </article>
+    </nav>
+    <main>
+        <% if (location=="index" ) { %>
+            <ul class="thread">
+                <% messages.forEach(message=> { %>
+                    <li>
+                        <%- include('message', {
+                        user: message.user,
+                        added: message.added,
+                        title: message.title,
+                        text: message.text,
+                        color1: message.color1,
+                        color2: message.color2
+                    }) %>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } %>
+    </main>
 </body>
+
 </html>
