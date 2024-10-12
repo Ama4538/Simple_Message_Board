@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Board</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -26,13 +26,34 @@
                 <% messages.forEach(message=> { %>
                     <li>
                         <%- include('message', { user: message.user, added: message.added, title: message.title, text:
-                            message.text, color1: message.color1, color2: message.color2 }) %>
+                            message.text, color1: message.color1, color2: message.color2, id: message.id }) %>
                     </li>
                     <% }); %>
             </ul>
-            <% } %>
-                <% if (location=="new" ) { %>
-                    <%- include('form') %>
+            <% } else if (location=="new" ) { %>
+                <%- include('form') %>
+                    <% } else if (location=="message" ) { %>
+                        <article class="message single-message">
+                            <div>
+                                <button onclick="window.location='/';">Return</button>
+                                <div class="icon" style="background: linear-gradient(<%= color1 %>, <%= color2 %>)">
+                                </div>
+                                <span>
+                                    <%= user %> - <%= added %>
+                                </span>
+                            </div>
+                            <h3>
+                                <%= title %>
+                            </h3>
+                            <p>
+                                <%= text %>
+                            </p>
+                        </article>
+                        <% } else if (location=='404' ) {%> 
+                            <article class="error">
+                                <h1>404</h1>
+                                <h3>Cannot Find that Page</h3>
+                            </article>    
                         <% } %>
     </main>
 </body>

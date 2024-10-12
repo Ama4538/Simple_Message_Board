@@ -110,26 +110,30 @@ main {
     list-style: none;
 }
 
-.thread article {
+.thread .message {
+    border-bottom: var(--border-color) 2px solid;
+}
+
+.message {
     display: flex;
     flex-direction: column;
     padding: var(--med-padding) var(--small-padding);
     font-size: var(--small-font);
-    border-bottom: var(--border-color) 2px solid;
 }
 
-.thread article h3 {
+.message h3 {
     font-size: calc(var(--large-font) / 1.10);
     font-weight: 600;
+    color: var(--primary-color);
 }
 
-.thread article div:first-child {
+.message div:first-child {
     display: flex;
     align-items: center;
-    gap: calc(var(--small-padding) / 3);
+    gap: calc(var(--small-padding) / 2);
 }
 
-.thread .icon {
+.icon {
     height: calc(var(--large-font) / 1.05);
     aspect-ratio: 1 / 1;
     border-radius: 100%;
@@ -141,6 +145,46 @@ main {
 
 .thread li:last-child article {
     border-bottom: none;
+}
+
+.message button {
+    position: relative;
+    z-index: 1;
+    padding: calc(var(--small-padding) / 5) var(--med-padding);
+    font-family: var(--text-font);
+    font-size: var(--small-font);
+    font-weight: 600;
+    background-color: transparent;
+    border: var(--border-color) 2px solid;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: 0.25s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.message button::after {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: inherit;
+}
+
+.message button:hover {
+    color: var(--secondary-color);
+}
+
+.message button:hover::after {
+    width: 100%;
+}
+
+.message-thread button {
+    margin-left: auto;
+    padding: calc(var(--small-padding) / 5) var(--large-padding);
+    width: max-content;
 }
 
 /* New Post */
@@ -237,4 +281,29 @@ main {
 
 .new-post form div button:hover::after {
     height: 100%;
+}
+
+/* Single Message */
+.single-message {
+    padding-top: 0;
+}
+
+/* 404 Page */
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.error h1,
+.error h3 {
+    color: var(--primary-color);
+    font-size: var(--large-font);
+}
+
+.error h1 {
+    font-size: calc(var(--large-font) * 2);
 }

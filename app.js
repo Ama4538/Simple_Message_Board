@@ -7,6 +7,7 @@ const PORT = 8080;
 // Routers
 const indexRouter = require('./routes/indexRoute.js');
 const newMessageRouter = require('./routes/newMessageRoute.js');
+const messageRouter = require('./routes/messageRoute.js');
 
 // Set view template engine
 app.set("views", path.join(__dirname, "views"));
@@ -18,7 +19,14 @@ app.use(express.static(assetsPath));
 
 app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
-app.use('/new', newMessageRouter)
+app.use('/message', messageRouter);
+app.use('/new', newMessageRouter);
+
+// Catch-all route for undefined paths (404)
+app.use((req, res) => {
+    res.status(404).render('index', { location: '404' });
+});
+
 
 // Listen
 app.listen(PORT, () => {
