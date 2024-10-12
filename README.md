@@ -4,7 +4,6 @@
 A simple message board application built with Node.js, Express, and EJS.
 
 ## Table of Contents
-- [TODO](##TODO)
 - [Installation](#installation)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
@@ -31,11 +30,11 @@ A simple message board application built with Node.js, Express, and EJS.
 Open your browser and go to http://localhost:8080.
 
 ## Features
-- Added new messages
+- Able to add new messages
 - View each messages in a separate page
 
 ## Tech Stack
-- node
+- Node
 - Express
 - CSS
 - EJS
