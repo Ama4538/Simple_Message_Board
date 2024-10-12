@@ -1,4 +1,4 @@
-![Main Screenshot](image/main.png)
+![Main Screenshot](images/main.png)
 
 # Simple_Message_Board
 A simple message board application built with Node.js, Express, and EJS.
@@ -59,8 +59,8 @@ Open your browser and go to http://localhost:8080.
 └── package.json            # Project metadata and dependencies
 ```
 ## Screenshots
-![Form Screenshot](image/form.png)
-![Single Screenshot](image/single.png)
+![Form Screenshot](images/form.png)
+![Single Screenshot](images/single.png)
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
