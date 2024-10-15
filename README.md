@@ -1,7 +1,7 @@
 ![Main Screenshot](images/main.png)
 
 # Simple_Message_Board
-A simple message board application built with Node.js, Express, and EJS.
+A simple message board application built with Node.js, Express, EJS using Postgres for database.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -41,21 +41,24 @@ Open your browser and go to http://localhost:8080.
 
 ## Project Structure
 ```
-├── modules/                # Modules    
-│   ├── message.js          # Functions related to messages
-├── public/                 # Static Files
-│   ├── style.css           # Styling
-├── routes/                 # All routes
-│   ├── indexRoute.js       # Main dashboard
-│   ├── messageRoute.js     # Individual Messages
-│   ├── newMessageRoute.js  # Adding Messages
-├── views/                  # EJS Template
-│   ├── form.js             # Form component
-│   ├── index.js            # Main view
-│   ├── message.js          # View messages component
-├── app.js                  # Main application file
-├── .gitignore              # Git ignore file
-└── package.json            # Project metadata and dependencies
+├── controllers/                # All Controllers    
+│   ├── messageControllers.js   # Controllers for all messages related content
+├── database/                   # All database related files
+│   ├── pool.js                 # Set up pool connect
+|   ├── queries.js              # All Database queires
+├── public/                     # Static Files
+│   ├── style.css               # Styling
+├── routes/                     # All routes
+│   ├── indexRoute.js           # Main dashboard
+│   ├── messageRoute.js         # Individual Messages
+│   ├── newMessageRoute.js      # Adding Messages
+├── views/                      # EJS Template
+│   ├── form.js                 # Form component
+│   ├── index.js                # Main view
+│   ├── message.js              # View messages component
+├── app.js                      # Main application file
+├── .gitignore                  # Git ignore file
+└── package.json                # Project metadata and dependencies
 ```
 ## Screenshots
 ![Form Screenshot](images/form.png)

@@ -25,7 +25,7 @@
             <ul class="thread">
                 <% messages.forEach(message=> { %>
                     <li>
-                        <%- include('message', { user: message.user, added: message.added, title: message.title, text:
+                        <%- include('message', { user: message.user, data_created: message.data_created, title: message.title, text:
                             message.text, color1: message.color1, color2: message.color2, id: message.id }) %>
                     </li>
                     <% }); %>
