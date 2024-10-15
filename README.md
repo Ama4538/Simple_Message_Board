@@ -38,6 +38,7 @@ Open your browser and go to http://localhost:8080.
 - Express
 - CSS
 - EJS
+- PostgreSQL
 
 ## Project Structure
 ```
